@@ -1,0 +1,6 @@
+framework module Pods_TMFeedsTests {
+  umbrella header "Pods-TMFeedsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
