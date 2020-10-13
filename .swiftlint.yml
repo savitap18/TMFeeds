@@ -1,0 +1,6 @@
+excluded: # paths to ignore during linting. overridden by `included`.
+  - Pods
+  - Helper/Reachability.swift
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - line_length

@@ -43,17 +43,19 @@ extension FeedsListViewController: FeedsViewControllerDelegate {
         fetchData()
     }
     
+    /// Method to check reachability
+    /// - Returns: true if connection is reachable else false
     func isReachable() -> Bool {
         do {
             let connection = try Reachability().connection
-            if connection ==  Reachability.Connection.unavailable{
+            if connection ==  Reachability.Connection.unavailable {
                 let alert = UIAlertController(title: "Error", message: "No Network Connection available", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 present(alert, animated: true, completion: nil)
                 return false
             }
         } catch {
-            Logger.log(message:"Error in reaching")
+            Logger.log(message: "Error in reaching")
         }
         return true
     }
@@ -104,6 +106,7 @@ extension FeedsListViewController: FeedsViewControllerDelegate {
 
 extension FeedsListViewController: FeedsViewModelDelegate {
     
+    /// Method called once feed data is received successfully so that UI is refreshed
     func onFetchCompleted() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
@@ -114,6 +117,7 @@ extension FeedsListViewController: FeedsViewModelDelegate {
         }
     }
     
+    /// Method called if service fails to fetch feed data
     func onFetchFailed() {
         DispatchQueue.main.async {  [weak self] in
             guard let self = self else {

@@ -22,6 +22,9 @@ class FeedsViewModel {
         posts.count
     }
     
+    /// To create model to populate the TableView Cell's UI
+    /// - Parameter index: row of the tableview that needs to be populated
+    /// - Returns: CellViewModel object needed to populate the cell.
     func getFeedCellViewModel(index: Int) -> FeedCellViewModel {
         FeedCellViewModel(postData: posts[index].data)
     }
